@@ -1,13 +1,26 @@
 import "./Section.css";
-import React from "react";
+import React, { useState } from "react";
 
 export const Section = () => {
+  const [value, setvalue] = useState("");
+  const [todolist, settodolist] = useState([]);
   return (
     <div className="container">
       <div className="left-box">
-          <p>Todo-List</p>
-          <input placeholder="Make List"></input>
-          <button>ADD</button>
+        <p>Todo-List</p>
+        <input
+          placeholder="Make List"
+          value={value}
+          onChange={(element) => setvalue(element.currentTarget.value)}
+        ></input>
+        <button
+          onClick={() => {
+            settodolist([...todolist, value]);
+            setvalue = "";
+          }}
+        >
+          ADD
+        </button>
       </div>
       <div className="right-box">
         <p>Display-List</p>
