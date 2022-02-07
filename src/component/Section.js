@@ -16,7 +16,7 @@ export const Section = () => {
         <button
           onClick={() => {
             settodolist([...todolist, value]);
-            setvalue = "";
+            setvalue("");
           }}
         >
           ADD
@@ -24,6 +24,16 @@ export const Section = () => {
       </div>
       <div className="right-box">
         <p>Display-List</p>
+        <ul>
+          {todolist.map((todo, value) => {
+            return (
+              <li>
+                <input type="checkbox"></input>
+                {todo}
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </div>
   );
