@@ -53,3 +53,7 @@ li{
     font-size: 1.5vw;
 }
 
+.input-check:checked{
+    text-decoration: line-through;
+}
+
