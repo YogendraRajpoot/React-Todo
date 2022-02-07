@@ -1,9 +1,11 @@
 import "./Section.css";
+import style from "./strick.css";
 import React, { useState } from "react";
 
 export const Section = () => {
   const [value, setvalue] = useState("");
   const [todolist, settodolist] = useState([]);
+  const [isStricked, setIsStricked] = useState(false);
   return (
     <div className="container">
       <div className="left-box">
@@ -28,8 +30,15 @@ export const Section = () => {
           {todolist.map((todo, value) => {
             return (
               <li>
-                <input type="checkbox"></input>
-                {todo}
+                <input
+                  type="checkbox"
+                  onChange={() => {
+                    setIsStricked(!isStricked);
+                  }}
+                />
+                <span className={isStricked ? style.strick : style.normal}>
+                  {todo}
+                </span>
               </li>
             );
           })}
